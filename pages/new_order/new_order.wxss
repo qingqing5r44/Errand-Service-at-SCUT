@@ -1,0 +1,86 @@
+/* pages/new_order/new_order.wxss */
+
+.page{
+  margin: 0rpx;
+  width: 750rpx;
+  /* background-color: white; */
+}
+.Inputwords{
+  width: 100%;
+  background-color: white;
+}
+.inputwords{
+  width: 710rpx;
+  height: 200rpx;
+  margin: 20rpx auto;
+}
+
+.List{
+  width: 100%;
+  height: 80rpx;
+  background-color: white;
+  border-top: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+}
+.list{
+  margin-left:20rpx;
+}
+.onlist{
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  text-align: center;
+}
+
+.text{
+  width: 100%;
+  height: auto;
+  color: black;
+}
+.locate{
+  color: white;
+  display: flex;
+  background-color: #aaa0a0;
+  margin: 40rpx auto 20rpx auto;
+  justify-content:center;
+  font-size: 15px;
+  flex-direction: row;
+}
+.submit{
+  width: 200rpx;
+  color: white;
+  background-color: #1b61a7;
+  margin: 40rpx auto 20rpx auto;
+  justify-content:center;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
+.button{
+    opacity: 0.9;
+    background: #f7f7f7;
+}
+
+
+.cover-view {
+  /*position: absolute;*/
+  bottom: calc(50rpx);
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content:center;
+  /*left: calc(50% - 150rpx);*/
+  /* opacity: .7; */
+}

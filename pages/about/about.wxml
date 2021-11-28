@@ -1,0 +1,21 @@
+<!--pages/about/about.wxml-->
+<!--<text>pages/about/about.wxml</text>-->
+<view class="bg">
+    <view class="title">
+      <image src="../../icon/icon.png"/>
+      <view class="name">SCUT Errand Service</view>
+    </view>
+    <view class="content-bg">
+      <view class="content">
+        <text decode="{{true}}">
+          &emsp;This Mini-program Errand Service at SCUT is developed by SCUT_errands team in South China University of Technology, aiming to provide a platform for college students to purchase orders and delivery orders.
+
+          Developers：
+          &emsp;Qingyi Wang
+          &emsp;Jiaxin Wu
+          &emsp;Yuning Xiong
+          &emsp;Xingqi Ou
+        </text>
+      </view>
+    </view>
+</view>

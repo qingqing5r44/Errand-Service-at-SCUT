@@ -1,0 +1,44 @@
+/* pages/information/information.wxss */
+.content{
+  display:block;
+  padding:30rpx;
+  margin-top: 30rpx;
+}
+.label-list {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+.place {
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+} 
+.label-list .label {
+  color: #333;
+  font-size: 36rpx;
+}
+.label-list input,text{
+  padding-left: 30rpx;
+  flex: 1;
+  color: #333;
+  font-size: 36rpx;
+}
+.label-list image {
+  height: 95rpx;
+  width: 95rpx;
+}
+.label-lists {
+  justify-content: space-between;
+}
+.paycode {
+  padding-left: 40rpx;
+  height: 95rpx;
+}
+.submit {
+  margin-top: 45rpx;
+  background-color: #1b61a7;
+  color: #fff;
+}

@@ -1,0 +1,40 @@
+<!--pages/order_detail/main.wxml-->
+
+
+<view class="order_info">
+    <view class="order_title">Order Details</view>
+    <view></view>
+</view>
+<view class="order_row">{{order.order_details}}</view>
+<view class="order_row"><text class="order">Price</text><view class="onorder">￥{{order.price}}</view></view>
+<view class="order_row"><text class="order">Destination</text><view class="onorder">{{order.end_position.name}}</view></view>
+<view class="order_row"><text class="order">Address:</text><view class="onorder">{{order.end_position.address}}</view></view>
+<view class="order_row"><text class="order">Arriving time</text><view class="onorder">{{order.end_time}}</view></view>
+
+<view class="btm_tool">
+    <view class="tool_item">
+        <navigator url="/pages/chat_detail/chat_detail?with_id={{order.order_receiver_openid}}">
+            <view>Chat</view>
+        </navigator>
+    </view>
+    <view class="tool_item btn_takeon" bindtap="take_order" data-item="{{order._id}}" wx:if="{{order.state==1&&order.order_receiver_openid!=user_id}}">
+        Take the order
+    </view>
+    <view class="tool_item btn_takeon" bindtap="update_order" data-item="{{order._id}}" wx:if="{{order.state==1&&order.order_receiver_openid==user_id}}">
+        Change the order
+    </view>
+    <view class="tool_item btn_takeon_finish" data-item="{{order._id}}" wx:if="{{order.state==2}}">
+        配送中
+    </view>
+    <view class="tool_item btn_takeon_finish" data-item="{{order._id}}" wx:if="{{order.state==3}}">
+        Unpaid
+    </view>
+    <view class="tool_item btn_takeon_finish" data-item="{{order._id}}" wx:if="{{order.state==4}}">
+        Finished
+    </view>    
+    <view class="tool_item btn_takeon_finish" bindtap="update_order" data-item="{{order._id}}" wx:if="{{order.state==5}}">
+        Expired, Please revised your order
+    </view>
+</view>
+
+

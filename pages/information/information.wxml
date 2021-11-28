@@ -1,0 +1,35 @@
+<!--pages/information/information.wxml-->
+<!--<text>pages/information/information.wxml</text>-->
+<view class="content">
+        <view class="label-list label-lists">
+            <view class="label">Profile</view>
+            <image src="{{avatarUrl}}"></image>
+        </view>
+        <view class="label-list">
+            <view class="label">Nickname </view>
+            <text>{{nickName}}</text>
+        </view>
+        <view class="label-list">
+            <view class="label">Gender </view>
+            <text>{{sex[sexId].name}}</text>
+        </view>
+        <view class="label-list">
+            <view class="label">Telephone </view>
+            <text>{{tel}}</text>
+        </view>
+        <view class="label-list">
+            <view class="label">RoomID </view>
+            <text>{{roomID}}</text>
+        </view>
+        <view class="label-list">
+            <view class="label">Credit Score </view>
+            <text>{{credit}}</text>
+        </view>
+        <view class="label-list">
+            <view class="label">Collection Code </view>
+            <view class="paycode">
+                <image data-src='{{paycodeUrl}}' src='{{paycodeUrl}}' mode='heightFix' bindtap="previewImg"></image>
+            </view>
+        </view>
+        <button class="submit" bindtap="buttonClick">Change Information</button>
+</view>

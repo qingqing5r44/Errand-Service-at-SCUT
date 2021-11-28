@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/info/info",
+    "pages/chat_list/chat_list",
+    "pages/order_detail/main",
+    "pages/new_order/new_order",
+    "pages/my_order/my_order",
+    "pages/search/index",
+    "pages/index/index",
+    "pages/information/information",
+    "pages/information_change/information_change",
+    "pages/chat_detail/chat_detail",
+    "pages/feedback/feedback",
+    "pages/about/about",
+    "pages/order_update/order_update"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1b61a7",
+    "navigationBarTitleText": "SCUT Errand Service",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "Your location will be used."
+    }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "Home",
+        "iconPath": "icon/home.png",
+        "selectedIconPath": "icon/_home.png"
+      },
+      {
+        "pagePath": "pages/my_order/my_order",
+        "text": "My Order",
+        "iconPath": "icon/order.png",
+        "selectedIconPath": "icon/_order.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "User",
+        "iconPath": "icon/info.png",
+        "selectedIconPath": "icon/_info.png"
+      }
+    ],
+    "selectedColor": "#1b61a7"
+  },
+  "sitemapLocation": "sitemap.json"
+}

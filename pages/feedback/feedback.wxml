@@ -1,0 +1,22 @@
+<!--pages/feedback/feedback.wxml-->
+<view class="bg">
+    <view class="title">
+      <image src="../../icon/icon.png"/>
+    </view>
+    <view class="content-bg">
+      <view class="content">
+        <text decode="{{true}}">
+          &emsp;有关bug反馈，建议，恶意行为举报等可点击下方按钮。
+
+          &emsp;如有其他问题想与我们沟通，可以通过以下方式来联系我们：
+          &emsp;&emsp;QQ：785643706
+          &emsp;&emsp;Email:785643706@qq.com
+          &emsp;&emsp;TEL:19927523237
+
+          &emsp;欢迎向我们提出建议，一起共同进步！
+          &emsp;非常感谢你们的支持！
+        </text>
+      </view>
+    </view>
+    <button type="primary" plain="true" open-type="feedback">问题反馈</button>
+</view>

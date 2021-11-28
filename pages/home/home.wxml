@@ -1,0 +1,124 @@
+<!--pages/home/home.wxml-->
+<!-- 自定义功能模块 -->
+<wxs module='func'>
+  // 格式化数据
+  function find_order_by_id (id, orderlist) {
+    var data={}
+    for(var i=0;i< orderlist.length; ++i)
+        if(orderlist[i]._id==id)
+            return orderlist[i]
+    return {}
+} 
+module.exports = {
+  find_order_by_id: find_order_by_id
+}
+</wxs>
+<!-- order==>(_id,openid)==>user==>url -->
+<wxs module='func1'>
+  // 格式化数据
+  function find_user_by_openid (openid, userlist) {
+    var data={}
+    for(var i=0;i< userlist.length; ++i)
+        if(userlist[i].openid==openid)
+            return userlist[i].avatarUrl
+    return {}
+} 
+module.exports = {
+  find_user_by_openid: find_user_by_openid
+}
+</wxs>
+
+<view class="scut_home">
+    <!--搜索框 开始-->
+    <SearchInput>
+    </SearchInput>
+    <!--添加悬浮按钮-->
+    <view bindtap="check_user_info">
+    <!-- <navigator url="../new_order/new_order"> -->
+    <image class="add_icon" src="../../icon/add.png">
+    </image>
+    <!-- </navigator> -->
+    </view>
+    <!--监听自定义事件-->
+<tabs tabs="{{tabs}}" bind:tabsitemchange="handletabsitemchange">
+    <!--距离-->
+    <block wx:if="{{tabs[0].isactive}}">
+    <view class="first_tab">
+    <navigator class="order_item"
+    wx:for="{{orderlist_distance}}"
+    wx:key="_id"
+    url="/pages/order_detail/main?_id={{item._id}}"
+    >
+        <view class="order_img">
+        <image wx:if='{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}' mode="widthFix" class="avatar-img" src="{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}"></image>
+        </view>
+        
+        <view class="order_info">
+        <view class="goods_name">【{{func.find_order_by_id(item._id,orderlist).start_position.address}}】</view>
+        <view class="goods_name">{{func.find_order_by_id(item._id,orderlist).order_details}}</view>
+        <view class="goods_price">￥{{func.find_order_by_id(item._id,orderlist).price}}</view>
+        <view class="goods_start">{{item.distance}}km</view>
+        </view>
+    </navigator>
+    </view>
+    </block>
+    <!--价格-->
+    <block wx:elif="{{tabs[1].isactive}}">
+        <view class="first_tab">
+    <navigator class="order_item"
+    wx:for="{{orderlist_price}}"
+    wx:key="_id"
+    url="/pages/order_detail/main?_id={{item._id}}"
+    >
+        <view class="order_img">
+        <image wx:if='{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}' mode="widthFix" class="avatar-img" src="{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}"></image>
+        </view>
+        
+        <view class="order_info">
+        <view class="goods_price">￥{{func.find_order_by_id(item._id,orderlist).price}}</view>
+        <view class="goods_name">【{{func.find_order_by_id(item._id,orderlist).start_position.address}}】</view>
+        <view class="goods_name">{{func.find_order_by_id(item._id,orderlist).order_details}}</view>
+        </view>
+    </navigator>
+    </view>
+    </block>
+    <!--时间-->
+    <block wx:elif="{{tabs[2].isactive}}">
+        <view class="first_tab">
+    <navigator class="order_item"
+    wx:for="{{orderlist_time}}"
+    wx:key="_id"
+    url="/pages/order_detail/main?_id={{item._id}}"
+    >
+        <view class="order_img">
+        <image wx:if='{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}' mode="widthFix" class="avatar-img" src="{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}"></image>
+        </view>
+        
+        <view class="order_info">
+        <view class="goods_name">{{func.find_order_by_id(item._id,orderlist).end_time}}</view>
+        <view class="goods_name">【{{func.find_order_by_id(item._id,orderlist).start_position.address}}】</view>
+        <view class="goods_name">{{func.find_order_by_id(item._id,orderlist).order_details}}</view>
+        <view class="goods_price">￥{{func.find_order_by_id(item._id,orderlist).price}}</view>
+        </view>
+    </navigator>
+    </view>
+    </block>
+</tabs>
+</view>
+
+
+<!-- 弹窗 -->
+<view>
+ 
+  <view wx:if="{{ showModal_flag }}" class="back" bindtap="hide"></view>
+  <!-- 弹窗内容 -->
+  <view wx:if="{{ showModal_flag }}" class="dialog-info">
+        <view class='dialog-title'>authorize</view>
+        <view class='dialog-content'>
+                Please authorize
+        </view>
+        <view class='dialog-footer'>
+          <button class='dialog-btn' open-type="getUserInfo" bindgetuserinfo='check_user' catchtap='confirmEvent'>Yes</button>
+        </view>
+  </view>
+</view>

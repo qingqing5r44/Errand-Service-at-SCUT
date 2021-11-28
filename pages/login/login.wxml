@@ -1,0 +1,10 @@
+<!-- 自定义模态框 -->
+<view class="mask" bindtap='modelCancel' catchtouchmove="preventTouchMove" wx:if="{{showModalDlg}}"></view>
+<view class="modalDlg" wx:if="{{showModalDlg}}">
+    <text>获取授权</text>
+    <text>请授权用户信息</text>
+    <view>
+    <button bindtap="cancel">取消</button>
+    <button open-type="getUserInfo">授权</button>
+    </view>
+</view>

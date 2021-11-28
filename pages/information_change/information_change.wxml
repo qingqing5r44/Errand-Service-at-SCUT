@@ -1,0 +1,38 @@
+<!--pages/information_change/information_change.wxml-->
+<!--<text>pages/information_change/information_change.wxml</text>-->
+<view class="modify-form">
+    <form bindsubmit="formSubmit">
+        <view class="label-list label-lists">
+            <view class="label">Profile</view>
+            <image src="{{avatarUrl}}"></image>
+        </view>
+         <view class="label-list">
+            <view class="label">Nickname </view>
+            <text>{{nickName}}</text>
+        </view>
+        <view class="label-list">
+            <view class="label">Gender</view>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio" wx:for="{{sex}}" wx:key="{{index}}">
+                    <radio value="{{item.id}}"  
+                    checked="{{sexId == item.id}}"/>{{item.name}}
+                </label>
+            </radio-group>
+        </view>
+         <view class="label-list">
+            <view class="label">Telephone</view>
+            <input value="{{tel}}"  placeholder-class="place" name="tel"/>
+        </view>
+        <view class="label-list">
+            <view class="label">RoomID</view>
+            <input placeholder="如C1-101" value='{{roomID}}' placeholder-class="place" name='roomID'/>
+        </view>
+        <view class="label-list">
+            <view class="label">Collection Code</view>
+            <view class="paycode" catchtap="getPaycode">
+                <image src='{{paycodeUrl}}' mode='heightFix'></image>
+            </view>
+        </view>
+        <button form-type='submit' class="submit">Save</button>
+    </form>
+</view>

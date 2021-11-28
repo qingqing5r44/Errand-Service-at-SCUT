@@ -1,0 +1,31 @@
+/* pages/feedback/feedback.wxss */
+.bg {
+  height: 100vh;
+  background-color: #eeeeee;
+}
+.title {
+  padding-top: 50rpx;
+  text-align: center;
+  height: 25%;
+}
+.title image{
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 50%;
+}
+.content-bg {
+  margin: 52rpx;
+  margin-top: 0;
+  margin-bottom: 30rpx;
+  background-color: #ffffff;
+  height: 60%;
+  width: 86%;
+  border-radius: 5%;
+}
+.content {
+  padding-left: 25rpx;
+  clear:both;
+}
+.content text {
+  font-size: 16px;
+}

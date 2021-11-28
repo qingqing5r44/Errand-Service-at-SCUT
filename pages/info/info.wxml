@@ -1,0 +1,37 @@
+<!--pages/info/info.wxml-->
+<!--<text>pages/info/info.wxml</text>-->
+<view class="wrap">
+<view class="userinfo_wrap">
+    <view class="user_img">
+        <image class="avatar-img" src="{{avatarUrl}}"></image>
+    </view>
+    <view class="user_info">
+        <view class="user_nickname">
+          <text style="font-size:24px;">{{nickName}}</text>
+        </view>
+        <view class="user_id">
+          <text style="font-size:14px;">Credit Score：{{credit}}分</text>
+        </view>
+    </view>
+</view>
+<view class="vlist">
+    <view class="information">
+        <navigator url="../information/information" open-type="navigate">
+          <text>Personal Information</text>
+          <span>></span>
+        </navigator>
+    </view>
+    <view class="information">
+        <navigator url="../feedback/feedback" open-type="navigate">
+          <text>Feedback</text>
+          <span>></span>
+        </navigator>
+    </view>
+    <view class="about" style="border:none;">
+        <navigator url="../about/about" open-type="navigate">
+            <text>About us</text>
+            <span>></span>
+        </navigator>
+    </view>
+</view>
+</view>

@@ -1,0 +1,116 @@
+<!--pages/my_order/my_order.wxml-->
+<wxs module='func'>
+  // 格式化数据
+  function find_order_by_id (id, orderlist) {
+    var data={}
+    for(var i=0;i< orderlist.length; ++i)
+        if(orderlist[i]._id==id)
+            return orderlist[i]
+    return {}
+} 
+module.exports = {
+  find_order_by_id: find_order_by_id
+}
+</wxs>
+<wxs module='func1'>
+  // 格式化数据
+  function check_user_character (id, order) {
+    var mark=0;
+    if(order.order_receiver_openid==id)
+        mark=1
+    if(order.order_taker_openid==id){
+      if(mark==1)
+          mark=1.5
+      else
+          mark=2
+    }
+    return mark
+} 
+module.exports = {
+  check_user_character: check_user_character
+}
+</wxs>
+
+<view class="swiper-tab">
+  <view wx:for="{{navTab}}" wx:key="index" class="swiper-tab-list {{currentTab==index ? 'chosen' : ''}}" data-current="{{index}}" bindtap="switchNav">{{item}}</view>
+     <!--跳转聊天列表-->
+  <button bindtap='gochat'class="gochat"style="width:42px;height: 42px;">
+    <image class="chatlist_icon" src="../../icon/chatlist.png"></image>
+  </button>
+
+</view>
+    
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight}}px" bindchange="bindChange">
+
+  <swiper-item wx:for="{{navTab}}" wx:key="index">
+    <scroll-view class="scrollWrap" scroll-y="true" style='height:{{winHeight}}px;'>
+      <view class="orderList" wx:for="{{orderlist}}" wx:key="_id" data-item="{{item}}">
+        <!--比较当前订单状态跟当前页面索引currentTab是否一致，一致则显示-->
+        <!-- 订单状态【1：等待配对；2：正在派送；3：订单已送达但未支付；4：订单已送达且支付完成；5：过期订单】 -->
+        <!-- 待送达1对应状态12；已送达2对应状态34 -->
+      <block wx:if ="{{(currentTab-0.5<=func1.check_user_character(openid, item)&&currentTab+0.5>=func1.check_user_character(openid, item))||currentTab==0}}">
+        <view class="proInfo">
+          <navigator url="/pages/order_detail/main?_id={{item._id}}">  
+          <view class="proInfo_right">
+            <view class="proInfo_text">Order：{{item.order_details}}</view>
+              <button catchtap='check' class="button_grey" wx:if="{{item.state==1}}">
+                  Waiting
+              </button>
+              <button catchtap='check' class="check" wx:if="{{item.state==2}}" data-clicked_order="{{item}}">
+                  Delivering
+              </button>
+              <button catchtap='check' class="check" wx:if="{{item.state==3&&openid==item.order_receiver_openid}}" data-clicked_order="{{item}}">
+                Unpaid
+              </button>
+              <button catchtap='taker_notice' class="check" wx:if="{{item.state==3&&openid!=item.order_receiver_openid}}" data-clicked_order="{{item}}">
+                Unpaid
+              </button>
+              <button catchtap='check' class="check" wx:if="{{item.state==4}}">
+                  Finished
+              </button>
+              <button catchtap='check' class="button_grey" wx:if="{{item.state==5}}">
+                  Expired
+              </button>                                                                        
+            <!--订单 位置名称（大概的非详细的）-->
+            <view class="proInfo_text">
+              <view class="proInfo_text_dtt">Location：{{item.end_position.name}}</view> 
+            </view>
+          </view>
+          
+          <!--订单号+价格-->
+          <view class="orderNum">
+            <view class="order_num">Order id:{{item._id}}</view>
+            <view class="money_num">Pay<text>￥{{item.price}}</text></view>
+          </view>
+        </navigator>
+      </view></block>
+      </view>
+      
+    </scroll-view>
+  </swiper-item>
+</swiper>
+
+
+
+<!-- 测试收款码展示 -->
+<!--屏幕背景变暗的背景 -->
+ <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+ <!--弹出框 -->
+ <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view  class="guan">
+        <view class="flex">
+            <view class="guanyu">
+                <image class="img" show-menu-by-longpress="true" mode="widthFix" src="{{paycode}}"></image>
+            </view>
+        </view>
+        <view class="center mag">Send the QRCode and pay your order</view>
+        <view class="flex"><view class="flex line solid"></view></view>
+        <view class="flex">
+            <view class="line">
+                <button bindtap="btn_payment" class="btn" data-order="{{clicked_order}}">
+                  Payment finished
+                </button>
+            </view>
+        </view>
+    </view>
+ </view>

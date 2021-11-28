@@ -1,0 +1,33 @@
+/* pages/about/about.wxss */
+.bg {
+    height: 100vh;
+    background-color: #eeeeee;
+}
+.title {
+    padding-top: 50rpx;
+    text-align: center;
+    height: 30vh;
+}
+.title image{
+    height: 200rpx;
+    width: 200rpx;
+    border-radius: 50%;
+}
+.name {
+    font-size: 22px;
+    margin: 30rpx 0 10rpx 0;
+}
+.content-bg {
+    margin: 52rpx;
+    margin-top: 30rpx;
+    background-color: #ffffff;
+    height: 60%;
+    width: 86%;
+    border-radius: 5%;
+}
+.content {
+    padding-left: 25rpx;
+}
+.content text {
+    font-size: 16px;
+}

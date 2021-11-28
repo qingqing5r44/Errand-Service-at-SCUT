@@ -1,0 +1,32 @@
+<!--pages/chat_list/chat_list.wxml-->
+<!--<text>pages/chat_list/chat_list.wxml</text>-->
+<wxs src="../../wxs/timeUtil.wxs" module="timeUtil"></wxs>
+<view stytle=" overflow-x: hidden; overflow-y: auto; ">
+  <view class="message_list">
+     <block wx:for="{{messages}}">
+        <!--<navigator url="../chat_detail/chat_detail">-->
+        <view bindtap="toWith" data-openid="{{item.withid}}">
+          <view class="item" >
+             <view class="item-left">
+                  <image src="{{item.url}}" class="image"/>
+             </view>
+             <view class="item-middle">
+                  <view>
+                       <text class="title">{{item.title}}</text>
+                  </view>
+                  <view>
+                      <text class="message">{{item.text}}</text>
+                  </view>
+            </view>
+            <view class="item_right">
+                <view><text class="time" wx:if="{{item.time==0}}"> </text></view>
+                <view><text class="time" wx:if="{{item.time>0}}">{{timeUtil.formatTimestamp(item.time)}}</text></view>
+                <view class="mark" wx:if="{{item.count>0}}"><text class="text">{{item.count}}</text></view>
+            </view>
+         </view>
+         <view  class="line"></view>
+       <!--</navigator>-->
+        </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "SearchInput":"../../components/SearchInput/SearchInput",
+    "tabs":"../../components/tabs/tabs"
+  },
+  "navigationBarTitleText": "SCUT Errand Service",
+  "component":true,
+  "enablePullDownRefresh": true
+}

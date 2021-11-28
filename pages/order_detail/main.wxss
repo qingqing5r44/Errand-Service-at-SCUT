@@ -1,0 +1,86 @@
+/* pages/order_detail/main.wxss */
+Page {
+  padding-bottom: 90rpx;
+}
+.order_row {
+  border-top: 5rpx solid #dedede;
+  border-bottom: 5px solid #dedede;
+  height: 150rpx;
+  padding: 10rpx 0;
+  display: flex;
+  flex: 5;
+  color: #000;
+  font-size: 30rpx;
+  padding: 0 10rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.order_row.order{
+  margin-left:20rpx;
+}
+.order_row.order.onorder{
+  margin-right: 15rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  text-align: center;
+}
+.order_info .order_title {
+  font-size: 32rpx;
+  color: var(--themecolor);
+  font-weight: 600;
+  padding: 20rpx;
+}
+.btm_tool {
+  border-top: 1px solid #ccc;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  background-color: #fff;
+  display: flex;
+}
+.btm_tool .tool_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  position: relative;
+}
+.btm_tool .tool_item button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.btm_tool .btn_takeon {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b61a7;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.btm_tool .btn_takeon_finish {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:grey;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+}

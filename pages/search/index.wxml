@@ -1,0 +1,65 @@
+<!--pages/search/index.wxml-->
+<!-- 自定义功能模块 -->
+<wxs module='func'>
+  // 格式化数据
+  function find_order_by_id (id, orderlist) {
+    var data={}
+    for(var i=0;i< orderlist.length; ++i)
+        if(orderlist[i]._id==id)
+            return orderlist[i]
+    return {}
+} 
+module.exports = {
+  find_order_by_id: find_order_by_id
+}
+</wxs>
+<!-- order==>(_id,openid)==>user==>url -->
+<wxs module='func1'>
+  // 格式化数据
+  function find_user_by_openid (openid, userlist) {
+    var data={}
+    for(var i=0;i< userlist.length; ++i)
+        if(userlist[i].openid==openid)
+            return userlist[i].avatarUrl
+    return {}
+} 
+module.exports = {
+  find_user_by_openid: find_user_by_openid
+}
+</wxs>
+
+<!-- 搜索栏 -->
+<view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input bindinput="input_text" type="text" class="weui-search-bar__input" placeholder="please input here"/>
+                </view>
+            </view>
+            <!-- 搜索按钮,调用搜索查询方法 -->
+            <view class="weui-search-bar__cancel-btn" bindtap='search'>search</view>
+        </view>
+    </view>
+</view>
+
+<!-- 搜索结果 -->
+<view class="first_tab" wx:if="{{clicked==1}}">
+  <navigator class="order_item"
+    wx:for="{{orderlist}}"
+    wx:key="_id"
+    url="/pages/order_detail/main?_id={{item._id}}"
+    >
+        <view class="order_img">
+        <image wx:if='{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}' mode="widthFix" class="avatar-img" src="{{func1.find_user_by_openid(func.find_order_by_id(item._id,orderlist).order_receiver_openid,userlist)}}"></image>
+        </view>
+        
+        <view class="order_info">
+        <view class="goods_name">【{{func.find_order_by_id(item._id,orderlist).start_position.address}}】</view>
+        <view class="goods_name">{{func.find_order_by_id(item._id,orderlist).order_details}}</view>
+        <view class="goods_price">￥{{func.find_order_by_id(item._id,orderlist).price}}</view>
+        </view>
+  </navigator>
+</view>

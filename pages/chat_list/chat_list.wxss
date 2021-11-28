@@ -1,0 +1,99 @@
+/* pages/chat_list/chat_list.wxss */
+.container {
+  display: block;
+}
+.message_list {
+  background-color: #f2f2f2;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8rpx;
+  margin-left: 8rpx;
+  margin-right: 8rpx;
+  margin-top: 8rpx;
+  background-color: #fff;
+  /**  border: 1rpx solid #eaeaea;
+  border-bottom: 1rpx solid #d0d0d0;*/
+  border-radius: 10rpx;
+}
+
+.item-left {
+  margin-top: 15rpx;
+  display: table-cell;
+  text-align: center;
+  margin-left: 15rpx;
+}
+.image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  background-color: #eee;
+}
+.item-middle {
+  flex: 1;
+  margin-left: 30rpx;
+  padding-top: 20rpx;
+  overflow: hidden;
+}
+.title {
+  color: #000;
+  font-family: "微软雅黑";
+  font-weight: bold;
+  line-height: 20rpx;
+  padding: 32rpx 16rpx, 0, 16rpx;
+  font-size: 24rpx;
+  margin-top: 60rpx;
+  overflow: hidden; /*自动隐藏文字*/
+  text-overflow: ellipsis; /*文字隐藏后添加省略号*/
+}
+.message {
+  font-family: "微软雅黑";
+  color: #808080;
+  line-height: 16rpx;
+  font-size: 20rpx;
+  padding: 0 16rpx, 0, 16rpx;
+  overflow: hidden; /**自动隐藏文字*/
+  text-overflow: ellipsis; /**文字隐藏后添加省略号*/
+  white-space: nowrap; /**强制不换行*/
+}
+
+.item_right {
+  padding-top: 13rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time {
+  color: #808080;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.mark {
+  margin-top: 4rpx;
+  background-color: #f74c31;
+  text-align: center;
+  line-height: 35rpx;
+  font-size: 18rpx;
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 18rpx;
+  color: #fff;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: #e0e1e2;
+}
+
+.text {
+}

@@ -1,0 +1,50 @@
+/* pages/info/info.wxss */
+.wrap {
+    background-color: #eeeeee;
+}
+.userinfo_wrap {
+    height: 20vh;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.user_img {
+    float:left;
+    margin:40rpx 30rpx 0 70rpx;
+}
+.avatar-img {
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 50%;
+}
+.user_info {
+    float: left;
+    margin: 40rpx 0 0 20rpx;
+}
+.user_nickname {
+    float: top;
+    margin: 30rpx 0 20rpx 10rpx;
+}
+.user_id {
+    float: top;
+    margin: 10rpx 0 20rpx 10rpx;
+}
+.vlist {
+    background-color: #ffffff;
+    padding: 20rpx;
+    margin-top: 10rpx;
+}
+.vlist view {
+    display: block;
+    line-height: 100rpx;
+    border-bottom: 1px solid #ddd;
+}
+.vlist text {
+  font-size: 38rpx;
+  margin-left: 40rpx;
+}
+.vlist span {
+  float: right;
+  font-size: 40rpx;
+  margin-right: 20rpx;
+  color: #ddd;
+}

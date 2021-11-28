@@ -1,0 +1,40 @@
+<!--pages/order_update/order_update.wxml-->
+<!--pages/new_order/new_order.wxml-->
+<!--点击新增按钮，跳转到新订单界面-->
+<van-notice-bar mode="closeable"  />
+<view class="page">
+  <form bindsubmit="onSubmit">
+    <view class="form">
+      <!--订单文字内容-->
+      <view class="Inputwords">
+        <view class="inputwords">
+          <!--单选框-->
+          <textarea class="text" placeholder="{{order.order_details}}" name="text" value="{{value}}" maxlength="-1" auto-height></textarea>
+        </view>
+      </view>
+
+      <view class="List"><text class="list">Input Price</text><view class="onlist"><text>¥</text>
+        <input placeholder="{{price}}"type="digit"maxlength="3"focus="true" name="price">{{price}}</input></view>
+      </view>
+   <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1"range="{{dateTimeArray1}}">
+     <view class="List"><text class="list"> Select the arriving time</text> <view class="onlist">{{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}</view></view>
+   </picker>
+  <button bindtap='getLocation_start'class="locate">Select the starting position</button>
+  <view wx:if="{{fetchlocation.address !=''}}">
+    <view class="List"><text class="list">From:</text><view class="onlist">{{fetchlocation.name}}</view> </view>
+    <view class="List"><text class="list">Address:</text><view class="onlist">{{fetchlocation.address}}</view></view>
+  </view>
+  <button bindtap='getLocation_end'class="locate">Selecting the destination</button>
+  <view wx:if="{{sendlocation.sendaddress !=''}}">
+    <view class="List"><text class="list">To:</text><view class="onlist">{{sendlocation.name}}</view> </view>
+    <view class="List"><text class="list">Address:</text><view class="onlist">{{sendlocation.address}}</view></view>
+  </view>
+      
+ <!--/view-->
+     <cover-view class="cover-view"> 
+       <button form-type="submit" class="submit" hover-class="button">Submit</button></cover-view> 
+    </view>
+  </form>
+</view>
+
+
